@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from 'reactstrap'
 import { useTimer } from 'react-timer-hook';
 
 function MyTimer({ expiryTimestamp }) {
@@ -21,14 +22,14 @@ function MyTimer({ expiryTimestamp }) {
         <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
       </div>
       <p>{isRunning ? 'Running' : 'Not running'}</p>
-      <button onClick={pause}>Pause</button>
-      <button onClick={resume}>Resume</button>
-      <button onClick={() => {
+      <Button onClick={pause}>Pause</Button>
+      <Button className="mx-3" onClick={resume}>Resume</Button>
+      <Button onClick={() => {
         // Restarts to 5 minutes timer
         const time = new Date();
         time.setSeconds(time.getSeconds() + 300);
         restart(time)
-      }}>Restart</button>
+      }}>Restart</Button>
     </div>
   );
 }
